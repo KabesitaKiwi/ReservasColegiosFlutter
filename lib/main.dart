@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const MyHomePage(title: 'Mi hola mundo de futter'),
+      home: const MyHomePage(title: 'Reservas Actividades Colegios'),
     );
   }
 }
@@ -90,33 +90,59 @@ void restablecer(){
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: Center(
+      body: Padding(padding: const EdgeInsets.all(20),
         child: Column(
-          mainAxisAlignment: .center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Text('has pulsado este boton estas veces: '),
-            Text(
-              '$_counter',
-              style: TextStyle(
-                fontSize: 32,
-                fontWeight: FontWeight.bold,
-                color: _counter == 0
-                  ?Colors.black
-                    : _counter > 0
-                      ?Colors.green
-                      :Colors.red,
-              )
+            const SizedBox(
+              width: double.infinity,
+              child: Text('INICIAR SESION',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 28,
+                  fontFamily: 'monocraft',
+                ),
+              ),
             ),
-            ElevatedButton(onPressed: coloreslimitesRestar, child: Text('restar contador')),
-            ElevatedButton(onPressed: restablecer, child: Text('restablecer contador'))
+            const SizedBox(
+              height: 75,
+              width: 250,
+              child: TextField(
+                obscureText: true,
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Usuario',
+                  labelStyle: const TextStyle(
+                    fontFamily: 'monocraft',
+                    fontSize: 18,
+                  )
+                ),
+              ),
+            ),
+            const SizedBox(
+              width: 250,
+                child: TextField(
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Contraseña',
+                    labelStyle: const TextStyle(
+                    fontFamily: 'monocraft',
+                    fontSize: 18,
+                  ),
+                  ),
+                ),
+            ),
+            const SizedBox(height: 20),
+
+              ElevatedButton(
+              onPressed: () {},
+              child: const Text('Entrar'),
+              ),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: coloreslimites,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
+      )
     );
   }
 }
